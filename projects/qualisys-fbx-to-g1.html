@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Qualisys FBX → Unitree G1 · Yutong Liu</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">yutong<span>.</span>liu</div>
+    <nav class="site-nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#publications">Publications</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://github.com/ytphi" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="project-hero">
+    <div class="wrap">
+      <a class="back" href="../index.html#projects">← All projects</a>
+      <h1>Qualisys FBX → Unitree G1</h1>
+      <p class="summary">
+        A motion-retargeting pipeline that converts Qualisys motion-capture
+        recordings into Unitree G1 humanoid joint angles, ready for simulation
+        or robot deployment. Developed at the CSUSB Robotics Lab.
+      </p>
+      <div class="project-links">
+        <a class="pill-link" href="https://github.com/ytphi/qualisys-fbx-to-g1" target="_blank" rel="noopener">GitHub repo</a>
+      </div>
+      <div class="card-tags" style="margin-top:6px;">
+        <span>Motion Generation</span><span>Simulation</span><span>Robot Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Architecture</h2>
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-box">Qualisys Lab<br><small>person moves in capture volume</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">FBX export<br><small>skeleton + global positions</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">Blender (headless)<br><small>reads skeleton data</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">GMR retargeting<br><small>inverse kinematics → G1 joints</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">MuJoCo viewer<br><small>.pkl output</small></div>
+        </div>
+        <p class="arch-note">
+          Blender runs headless to parse the FBX skeleton, auto-corrects the actor's
+          starting orientation so the robot faces forward, then GMR (General Motion
+          Retargeting, Stanford/CMU) solves the IK mapping human motion onto the G1's
+          body proportions before saving/visualizing the result.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Media</h2>
+      <div class="media-grid">
+        <div class="ph">mocap capture volume</div>
+        <div class="ph">MuJoCo playback</div>
+        <div class="ph">side-by-side comparison</div>
+      </div>
+      <p class="status-note" style="margin-top:16px;">Demo video coming soon.</p>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Overview</h2>
+      <div class="prose">
+        <h3>Requirements</h3>
+        <ul>
+          <li>Python 3.10+</li>
+          <li>Blender 3.6 LTS+ (reads FBX files)</li>
+          <li>MuJoCo, installed alongside GMR, for 3D playback</li>
+          <li>A Qualisys FBX export with skeleton + global positions enabled</li>
+        </ul>
+        <h3>Export requirements from QTM</h3>
+        <ul>
+          <li>AIM skeleton model fitted to the recording (not raw marker data)</li>
+          <li>Binary FBX, Z up-axis, meters, all frames</li>
+          <li>"Skeleton" and "Global Positions" both checked on export</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    yutong.liu — built with plain HTML/CSS/JS, hosted on GitHub Pages.
+  </div>
+</footer>
+
+</body>
+</html>

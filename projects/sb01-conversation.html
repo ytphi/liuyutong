@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SB01 — Unitree G1 Conversation · Yutong Liu</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="brand">yutong<span>.</span>liu</div>
+    <nav class="site-nav">
+      <a href="../index.html#projects">Projects</a>
+      <a href="../index.html#publications">Publications</a>
+      <a href="../index.html#contact">Contact</a>
+      <a href="https://github.com/ytphi" target="_blank" rel="noopener">GitHub ↗</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="project-hero">
+    <div class="wrap">
+      <a class="back" href="../index.html#projects">← All projects</a>
+      <h1>SB01 — Unitree G1 Conversation</h1>
+      <p class="summary">
+        A voice-driven conversation system for the Unitree G1 humanoid robot,
+        nicknamed <em>sb01</em>. The robot listens via on-board ASR, reasons with
+        Claude, and speaks back with Edge TTS in real time — with face recognition
+        loading a per-person memory profile at startup. Developed for the CSUSB
+        robotics program.
+      </p>
+      <div class="project-links">
+        <a class="pill-link" href="https://github.com/ytphi/sb01-conversation" target="_blank" rel="noopener">GitHub repo</a>
+        <a class="pill-link" href="https://youtu.be/R4tsqcWj8_U" target="_blank" rel="noopener">Demo on YouTube</a>
+      </div>
+      <div class="card-tags" style="margin-top:6px;">
+        <span>Embodied AI</span><span>LLMs</span><span>Robot Learning</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="section-title">Video</h2>
+      <div class="video-embed">
+        <iframe src="https://www.youtube.com/embed/R4tsqcWj8_U" title="SB01 Demo" allowfullscreen loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Architecture</h2>
+      <div class="arch-diagram">
+        <div class="arch-flow">
+          <div class="arch-box">G1 ASR (DDS)</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">sb01_conversation.py</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">Claude API</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">Edge TTS</div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">G1 speaker</div>
+        </div>
+        <div class="arch-flow" style="margin-top:10px;">
+          <div class="arch-arrow">↕</div>
+          <div class="arch-box">face_id.py + memory_manager.py</div>
+          <div class="arch-arrow">— who is this? what do I know?</div>
+        </div>
+        <p class="arch-note">
+          1. ASR callback receives speech transcripts over DDS (<code>rt/audio_msg</code>) · 2. Emotion tag drives chest LED color · 3. Claude builds a reply from conversation history + per-person memory · 4. Edge TTS streams audio back to the G1 speaker · 5. On shutdown, Claude summarizes the session and extracts new facts.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Media</h2>
+      <div class="media-grid">
+        <div class="ph">robot + LED photo</div>
+        <div class="ph">face enrollment screenshot</div>
+        <div class="ph">hardware / network setup</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bordered">
+    <div class="wrap">
+      <h2 class="section-title">Overview</h2>
+      <div class="prose">
+        <h3>Features</h3>
+        <ul>
+          <li>Voice conversation over DDS with natural speech replies</li>
+          <li>Emotion-aware chest LEDs (happy → yellow, sad → purple, angry → red)</li>
+          <li>Face recognition at startup, loading a persistent per-person memory profile</li>
+          <li>Automatic weather lookups when a weather question is detected</li>
+          <li>Multilingual TTS — auto-detects English vs. Spanish</li>
+        </ul>
+        <h3>Hardware</h3>
+        <ul>
+          <li>Ethernet (<code>eno0</code>) for DDS — ASR in, TTS/LED out</li>
+          <li>WiFi for Claude API + web/weather lookups</li>
+          <li>Unitree SDK2 for DDS communication with the G1</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    yutong.liu — built with plain HTML/CSS/JS, hosted on GitHub Pages.
+  </div>
+</footer>
+
+</body>
+</html>
