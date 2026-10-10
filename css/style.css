@@ -214,9 +214,7 @@ h2.section-title::after {
 .pub .authors { color: var(--text-dim); font-size: 14px; }
 .pub .links { font-family: var(--mono); font-size: 13px; margin-top: 4px; }
 
-/* ---------- contact / footer ---------- */
-
-.contact-links { display: flex; flex-wrap: wrap; gap: 10px 24px; font-family: var(--mono); font-size: 14.5px; }
+/* ---------- footer ---------- */
 
 footer {
   border-top: 1px solid var(--border);
