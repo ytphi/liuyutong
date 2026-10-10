@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Qualisys FBX → Unitree G1 · Yutong Liu</title>
+<title>QTM Teleop G1 · Yutong Liu</title>
 <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
@@ -23,17 +23,18 @@
   <section class="project-hero">
     <div class="wrap">
       <a class="back" href="../index.html#projects">← All projects</a>
-      <h1>Qualisys FBX → Unitree G1</h1>
+      <h1>QTM Teleop G1</h1>
       <p class="summary">
-        A motion-retargeting pipeline that converts Qualisys motion-capture
-        recordings into Unitree G1 humanoid joint angles, ready for simulation
-        or robot deployment. Developed at the CSUSB Robotics Lab.
+        Teleoperation of the Unitree G1 humanoid from Qualisys motion capture:
+        a person moves in the mocap studio and the G1 follows in real time
+        through the QTM stream. Recorded sessions can also be retargeted
+        offline from FBX. Developed at the CSUSB Robotics Lab.
       </p>
       <div class="project-links">
-        <a class="pill-link" href="https://github.com/ytphi/qualisys-fbx-to-g1" target="_blank" rel="noopener">GitHub repo</a>
+        <a class="pill-link" href="https://github.com/ytphi/qtm-teleop-g1" target="_blank" rel="noopener">GitHub repo</a>
       </div>
       <div class="card-tags" style="margin-top:6px;">
-        <span>Motion Generation</span><span>Simulation</span><span>Robot Learning</span>
+        <span>Teleoperation</span><span>Motion Capture</span><span>Robot Learning</span>
       </div>
     </div>
   </section>
@@ -42,6 +43,23 @@
     <div class="wrap">
       <h2 class="section-title">Architecture</h2>
       <div class="arch-diagram">
+        <h3>Live teleop</h3>
+        <div class="arch-flow">
+          <div class="arch-box">QTM real-time stream<br><small>24 skeleton segments</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">GMR retargeting<br><small>live IK → 29 G1 joints</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">Safety filter<br><small>limits · rate · stale-data hold</small></div>
+          <div class="arch-arrow">→</div>
+          <div class="arch-box">G1 / MuJoCo<br><small>100 Hz commands + HDF5 episodes</small></div>
+        </div>
+        <p class="arch-note">
+          The QTM real-time skeleton stream is retargeted every frame, filtered for
+          safety, and sent to the G1 over DDS, or to a MuJoCo viewer in dry-run mode.
+          Every session can be recorded as an episode for robot learning. Tested
+          against live QTM data in dry-run mode; not yet run on the physical robot.
+        </p>
+        <h3>Offline FBX retargeting</h3>
         <div class="arch-flow">
           <div class="arch-box">Qualisys Lab<br><small>person moves in capture volume</small></div>
           <div class="arch-arrow">→</div>
@@ -67,7 +85,7 @@
     <div class="wrap">
       <h2 class="section-title">Media</h2>
       <div class="video-embed">
-        <iframe src="https://www.youtube.com/embed/ea8OFjWnJ14" title="Qualisys FBX → Unitree G1 Demo" allowfullscreen loading="lazy"></iframe>
+        <iframe src="https://www.youtube.com/embed/ea8OFjWnJ14" title="QTM Teleop G1: offline FBX retargeting demo" allowfullscreen loading="lazy"></iframe>
       </div>
     </div>
   </section>
@@ -78,10 +96,14 @@
       <div class="prose">
         <h3>Requirements</h3>
         <ul>
-          <li>Python 3.10+</li>
-          <li>Blender 3.6 LTS+ (reads FBX files)</li>
-          <li>MuJoCo, installed alongside GMR, for 3D playback</li>
-          <li>A Qualisys FBX export with skeleton + global positions enabled</li>
+          <li>Python 3.10+, with GMR and MuJoCo (installed by <code>setup.sh</code>)</li>
+          <li>Live teleop: QTM streaming an AIM skeleton (RT port 22223); unitree_sdk2_python to drive the robot</li>
+          <li>Offline: Blender 3.6 LTS+ and a Qualisys FBX export with skeleton + global positions enabled</li>
+        </ul>
+        <h3>Robot safety</h3>
+        <ul>
+          <li>Always dry-run in MuJoCo first (<code>--dry-run</code>)</li>
+          <li>On hardware the G1's balance controller is released: robot on a gantry, safety operator on the remote</li>
         </ul>
         <h3>Export requirements from QTM</h3>
         <ul>
