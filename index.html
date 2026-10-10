@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Yutong Liu — Embodied AI &amp; Robot Learning</title>
 <meta name="description" content="Portfolio of Yutong Liu — research and engineering work in embodied AI, robot learning, LLMs, simulation, motion generation, and perception.">
-<link rel="stylesheet" href="css/style.css?v=2026101005">
+<link rel="stylesheet" href="css/style.css?v=2026101006">
 </head>
 <body>
 
@@ -59,7 +59,12 @@
           </div>
           <div class="card-body">
             <h3><a href="projects/sb01-conversation.html">SB01 — Unitree G1 Conversation</a></h3>
-            <p>Real-time voice conversation system for a humanoid robot: on-device ASR, Claude reasoning, Edge TTS, and face-recognition-driven memory — all running live on the G1.</p>
+            <p>A humanoid robot you can hold a real conversation with. SB01 turns the Unitree G1 into an assistant that listens, reasons with Claude, answers out loud and gestures as it speaks. It runs live on the robot in the lab, in the classroom and at public demos.</p>
+            <ul class="card-points">
+              <li>Complete voice pipeline: Whisper speech recognition, streamed Claude replies and text-to-speech played through the robot's own speaker</li>
+              <li>Recognizes returning visitors by face and remembers past conversations, but only after asking their permission</li>
+              <li>Answers questions from a local knowledge base of course materials and papers; every arm gesture passes through a joint-limit and speed safety filter</li>
+            </ul>
             <div class="card-tags">
               <span>Embodied AI</span><span>LLMs</span><span>Robot Learning</span>
             </div>
@@ -76,7 +81,12 @@
           </div>
           <div class="card-body">
             <h3><a href="projects/qtm-teleop-g1.html">QTM Teleop G1</a></h3>
-            <p>Teleoperate the Unitree G1 from Qualisys motion capture: the live QTM skeleton stream is retargeted with GMR inverse kinematics, passed through a safety filter, and sent to the robot (or a MuJoCo preview). Recorded sessions can also be retargeted offline from FBX.</p>
+            <p>Move in the motion-capture studio and the G1 moves with you. A live pipeline streams a performer's skeleton from Qualisys, maps it onto the robot's 29 joints and checks every command for safety before it reaches the hardware.</p>
+            <ul class="card-points">
+              <li>About 5 ms median motion-capture latency; a 24-segment skeleton retargeted with GMR inverse kinematics at 100 Hz</li>
+              <li>Safety layer built in from the start: joint-limit clamping, speed limits, automatic hold on stale or invalid data, and a MuJoCo dry-run mode before any hardware run</li>
+              <li>Records each session as a dataset for teaching robots by demonstration, and converts recorded FBX sessions offline. Validated on live motion-capture data in simulation; robot trials are next</li>
+            </ul>
             <div class="card-tags">
               <span>Teleoperation</span><span>Motion Capture</span><span>Robot Learning</span>
             </div>
@@ -93,7 +103,12 @@
           </div>
           <div class="card-body">
             <h3><a href="https://github.com/ytphi/g1-text-to-motion" target="_blank" rel="noopener">G1 Text-to-Motion</a></h3>
-            <p>Type a text prompt and watch the Unitree G1 perform it: TEXEDO text-conditioned motion generation feeding NVIDIA's GR00T SONIC whole-body controller in MuJoCo sim2sim, with joint-activity analysis and saved verified motions.</p>
+            <p>Describe a movement in plain English and the G1 performs it. This project connects TEXEDO, a recent text-to-motion model, to NVIDIA's GR00T SONIC whole-body controller, so every generated motion is tested by a physics-based controller in simulation first.</p>
+            <ul class="card-points">
+              <li>Interactive loop: type a prompt, generate candidates, keep the best, and watch the result in MuJoCo within seconds</li>
+              <li>Joint-activity analysis shows which of the robot's 29 joints each prompt actually drives</li>
+              <li>Approved motions are saved as a reusable library, with the prompt and generation settings recorded so every result can be reproduced</li>
+            </ul>
             <div class="card-tags">
               <span>Motion Generation</span><span>Simulation</span>
             </div>
@@ -109,7 +124,12 @@
           </div>
           <div class="card-body">
             <h3><a href="https://github.com/ytphi/g1-kendama" target="_blank" rel="noopener">G1 Kendama — Big-Cup Catch</a></h3>
-            <p>The Unitree G1 swings a kendama ball up and catches it in the big cup, in MuJoCo: open-loop swing-up plus a closed-loop catch, tuned by CEM search with the arm in the loop, holding the ken in a custom 3D-printed fist. 30/30 catches under 3% parameter jitter and up to 5 mm camera noise.</p>
+            <p>Can a humanoid play kendama? The G1 swings the ball up and catches it in the big cup, a fast, precise skill where prediction, planning and control all have to work together.</p>
+            <ul class="card-points">
+              <li>Open-loop swing-up followed by a closed-loop catch that predicts where the ball will land, built on published robotics research (Bujarbaruah et al. 2020; Nemec &amp; Ude 2011)</li>
+              <li>Tuned by CEM search with the full arm dynamics and the robot's real joint-speed limits in the loop</li>
+              <li>30/30 catches with 3% parameter jitter and up to 5 mm of camera noise, holding the ken in a custom 3D-printed fist designed for the G1</li>
+            </ul>
             <div class="card-tags">
               <span>Simulation</span><span>Robot Learning</span>
             </div>

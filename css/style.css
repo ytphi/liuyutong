@@ -114,7 +114,7 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 section { padding: 40px 0; }
 section.bordered { border-top: 1px solid var(--border); }
 #bio { padding: 4px 0 8px; }
-#bio .prose { max-width: 820px; }
+#bio .prose { font-size: 17.5px; line-height: 1.65; }
 #bio .prose p:first-child { margin-top: 0; }
 #bio .prose p:last-child { margin-bottom: 0; }
 
@@ -174,8 +174,10 @@ h2.section-title::after {
 }
 
 .card-body { padding: 16px 0 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
-.card-body h3 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
-.card-body p { margin: 0; color: var(--text-dim); font-size: 14.5px; }
+.card-body h3 { margin: 0; font-size: 20px; letter-spacing: -0.01em; }
+.card-body p { margin: 0; color: var(--text); font-size: 16px; line-height: 1.6; }
+.card-points { margin: 0; padding-left: 18px; color: var(--text-dim); font-size: 15px; line-height: 1.55; }
+.card-points li { margin-bottom: 6px; }
 
 .card-tags { display: flex; flex-wrap: wrap; gap: 6px; }
 .card-tags span {
