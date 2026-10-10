@@ -93,16 +93,9 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
   border: 1px solid var(--border);
   color: var(--text-dim);
   background: var(--surface);
-  cursor: pointer;
   transition: all .15s ease;
-  user-select: none;
 }
-.tag:hover { border-color: var(--accent); color: var(--text); }
-.tag.active {
-  background: var(--accent-soft);
-  border-color: var(--accent);
-  color: var(--accent);
-}
+.tag:hover { border-color: var(--accent); color: var(--text); text-decoration: none; }
 
 /* ---------- sections ---------- */
 

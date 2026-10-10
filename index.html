@@ -9,33 +9,20 @@
 </head>
 <body>
 
-<header class="site">
-  <div class="wrap">
-    <nav class="site-nav">
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#publications">Publications</a>
-      <a href="#teaching">Teaching</a>
-      <a href="#contact">Contact</a>
-      <a href="https://github.com/ytphi" target="_blank" rel="noopener">GitHub ↗</a>
-    </nav>
-  </div>
-</header>
-
 <main>
   <section class="hero">
     <div class="wrap">
       <p class="kicker">Research &amp; Engineering Portfolio</p>
       <h1>Yutong Liu</h1>
       <p class="lede">Embodied AI Engineer &amp; Robotics Researcher</p>
-      <div class="tags" id="focus-tags">
-        <span class="tag" data-tag="embodied-ai">Embodied AI</span>
-        <span class="tag" data-tag="robot-learning">Robot Learning</span>
-        <span class="tag" data-tag="llms">LLMs</span>
-        <span class="tag" data-tag="simulation">Simulation</span>
-        <span class="tag" data-tag="motion-generation">Motion Generation</span>
-        <span class="tag" data-tag="perception">Perception</span>
-      </div>
+      <nav class="tags hero-nav">
+        <a class="tag" href="#about">About</a>
+        <a class="tag" href="#projects">Projects</a>
+        <a class="tag" href="#publications">Publications</a>
+        <a class="tag" href="#teaching">Teaching</a>
+        <a class="tag" href="#contact">Contact</a>
+        <a class="tag" href="https://github.com/ytphi" target="_blank" rel="noopener">GitHub ↗</a>
+      </nav>
     </div>
   </section>
 
@@ -55,7 +42,7 @@
 
       <div class="grid">
 
-        <article class="card" data-tags="embodied-ai,llms,robot-learning">
+        <article class="card">
           <div class="card-media">
             <iframe src="https://www.youtube.com/embed/R4tsqcWj8_U" title="SB01 Demo" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -72,7 +59,7 @@
           </div>
         </article>
 
-        <article class="card" data-tags="motion-generation,simulation,robot-learning">
+        <article class="card">
           <div class="card-media">
             <iframe src="https://www.youtube.com/embed/ea8OFjWnJ14" title="Qualisys FBX → Unitree G1 Demo" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -89,7 +76,7 @@
           </div>
         </article>
 
-        <article class="card" data-tags="motion-generation,simulation">
+        <article class="card">
           <div class="card-media">
             <iframe src="https://www.youtube.com/embed/Km8ddt7dlGA" title="G1 Text-to-Motion Demo" allowfullscreen loading="lazy"></iframe>
           </div>
@@ -101,6 +88,22 @@
             </div>
             <div class="card-links">
               <a href="https://github.com/ytphi/g1-text-to-motion" target="_blank" rel="noopener">GitHub</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-media">
+            <iframe src="https://www.youtube.com/embed/7InVkUMQJSI" title="G1 Kendama Big-Cup Catch" allowfullscreen loading="lazy"></iframe>
+          </div>
+          <div class="card-body">
+            <h3><a href="https://github.com/ytphi/g1-kendama" target="_blank" rel="noopener">G1 Kendama — Big-Cup Catch</a></h3>
+            <p>The Unitree G1 swings a kendama ball up and catches it in the big cup, in MuJoCo: open-loop swing-up plus a closed-loop catch, tuned by CEM search with the arm in the loop, holding the ken in a custom 3D-printed fist. 30/30 catches under 3% parameter jitter and up to 5 mm camera noise.</p>
+            <div class="card-tags">
+              <span>Simulation</span><span>Robot Learning</span>
+            </div>
+            <div class="card-links">
+              <a href="https://github.com/ytphi/g1-kendama" target="_blank" rel="noopener">GitHub</a>
             </div>
           </div>
         </article>
@@ -153,6 +156,5 @@
   </div>
 </footer>
 
-<script src="js/main.js"></script>
 </body>
 </html>
