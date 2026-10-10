@@ -32,9 +32,10 @@ a:hover { text-decoration: underline; }
 
 .wrap {
   max-width: var(--max);
-  margin: 0 auto;
+  margin: 0;
   padding: 0 24px;
 }
+@media (min-width: 761px) { .wrap { padding: 0 56px; } }
 
 /* ---------- header ---------- */
 
@@ -62,7 +63,7 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 
 /* ---------- hero ---------- */
 
-.hero { padding: 64px 0 40px; }
+.hero { padding: 64px 0 20px; }
 .hero-row { display: flex; align-items: center; gap: 32px; }
 .hero-text { min-width: 0; }
 .avatar {
@@ -111,6 +112,9 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 
 section { padding: 40px 0; }
 section.bordered { border-top: 1px solid var(--border); }
+#bio { padding: 4px 0 8px; }
+#bio .prose p:first-child { margin-top: 0; }
+#bio .prose p:last-child { margin-bottom: 0; }
 
 h2.section-title {
   font-size: 13px;
