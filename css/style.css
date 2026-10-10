@@ -55,16 +55,7 @@ header.site .wrap {
   gap: 16px;
 }
 
-.brand {
-  font-family: var(--mono);
-  font-weight: 600;
-  font-size: 15px;
-  color: var(--text);
-  letter-spacing: -0.02em;
-}
-.brand span { color: var(--accent); }
-
-nav.site-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 22px; font-size: 14px; }
+nav.site-nav { margin-left: auto; display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 22px; font-size: 14px; }
 @media (max-width: 720px) { nav.site-nav { gap: 6px 14px; } }
 nav.site-nav a { color: var(--text-dim); }
 nav.site-nav a:hover { color: var(--text); text-decoration: none; }
