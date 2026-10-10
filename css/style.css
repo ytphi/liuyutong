@@ -63,17 +63,17 @@ nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 /* ---------- hero ---------- */
 
 .hero { padding: 64px 0 40px; }
-.hero-row { display: flex; align-items: center; gap: 40px; }
+.hero-row { display: flex; align-items: center; gap: 32px; }
 .hero-text { min-width: 0; }
 /* same ring as the learn.liuyutong.dev bio photo: dark gap + light-blue ring + soft glow */
 .avatar {
-  width: 150px; height: 150px; flex: none; border-radius: 50%; object-fit: cover; background: #5fc0f2;
+  width: 110px; height: 110px; flex: none; border-radius: 50%; object-fit: cover; background: #5fc0f2;
   box-shadow: 0 0 0 4px #10304e, 0 0 0 7px #5fc0f2, 0 12px 32px rgb(0 0 0 / 40%);
   margin: 7px;
 }
 @media (max-width: 720px) {
   .hero-row { flex-direction: column; align-items: flex-start; gap: 24px; }
-  .avatar { width: 120px; height: 120px; }
+  .avatar { width: 96px; height: 96px; }
 }
 .hero .kicker {
   font-family: var(--mono);
