@@ -64,7 +64,8 @@ header.site .wrap {
 }
 .brand span { color: var(--accent); }
 
-nav.site-nav { display: flex; gap: 22px; font-size: 14px; }
+nav.site-nav { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px 22px; font-size: 14px; }
+@media (max-width: 720px) { nav.site-nav { gap: 6px 14px; } }
 nav.site-nav a { color: var(--text-dim); }
 nav.site-nav a:hover { color: var(--text); text-decoration: none; }
 
