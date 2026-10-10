@@ -133,27 +133,20 @@ h2.section-title::after {
 /* ---------- project grid ---------- */
 
 /* one project per row: video left, text right; stacks on narrow screens */
-.grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+.grid { display: grid; grid-template-columns: 1fr; gap: 40px; }
 @media (min-width: 761px) {
   .grid .card { flex-direction: row; }
   .grid .card-media {
     flex: 0 0 52%;
-    align-self: center;
-    border-bottom: 0;
+    align-self: flex-start;
   }
+  .grid .card-body { padding: 0 0 0 24px; }
 }
 
 .card {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
-  box-shadow: var(--shadow);
   display: flex;
   flex-direction: column;
-  transition: transform .15s ease, border-color .15s ease;
 }
-.card:hover { transform: translateY(-2px); border-color: var(--accent); }
 
 .card-media {
   aspect-ratio: 16/9;
@@ -161,7 +154,7 @@ h2.section-title::after {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-bottom: 1px solid var(--border);
+  border-radius: var(--radius);
   position: relative;
   overflow: hidden;
 }
@@ -174,7 +167,7 @@ h2.section-title::after {
   opacity: 0.7;
 }
 
-.card-body { padding: 18px 20px 20px; display: flex; flex-direction: column; gap: 10px; flex: 1; }
+.card-body { padding: 16px 0 0; display: flex; flex-direction: column; gap: 10px; flex: 1; }
 .card-body h3 { margin: 0; font-size: 18px; letter-spacing: -0.01em; }
 .card-body p { margin: 0; color: var(--text-dim); font-size: 14.5px; }
 
@@ -189,7 +182,6 @@ h2.section-title::after {
 }
 
 .card-links {
-  margin-top: auto;
   display: flex;
   gap: 16px;
   font-size: 13.5px;
@@ -201,18 +193,11 @@ h2.section-title::after {
   font-family: var(--mono);
   font-size: 13px;
   color: var(--text-dim);
-  border: 1px dashed var(--border);
-  border-radius: var(--radius);
-  padding: 16px 18px;
 }
 
 /* ---------- publications ---------- */
 
 .pub {
-  background: var(--surface);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 18px 20px;
   display: flex;
   flex-direction: column;
   gap: 6px;
@@ -222,15 +207,10 @@ h2.section-title::after {
 .pub .authors { color: var(--text-dim); font-size: 14px; }
 .pub .links { font-family: var(--mono); font-size: 13px; margin-top: 4px; }
 
-/* ---------- footer ---------- */
+/* ---------- page end ---------- */
 
-footer {
-  border-top: 1px solid var(--border);
-  padding: 28px 0 48px;
-  color: var(--text-dim);
-  font-size: 13px;
-  font-family: var(--mono);
-}
+main > section:last-child { padding-bottom: 72px; }
+
 
 /* ---------- project detail page ---------- */
 
