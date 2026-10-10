@@ -132,8 +132,16 @@ h2.section-title::after {
 
 /* ---------- project grid ---------- */
 
-.grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
-@media (max-width: 720px) { .grid { grid-template-columns: 1fr; } }
+/* one project per row: video left, text right; stacks on narrow screens */
+.grid { display: grid; grid-template-columns: 1fr; gap: 20px; }
+@media (min-width: 761px) {
+  .grid .card { flex-direction: row; }
+  .grid .card-media {
+    flex: 0 0 52%;
+    align-self: center;
+    border-bottom: 0;
+  }
+}
 
 .card {
   background: var(--surface);
