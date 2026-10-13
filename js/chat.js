@@ -15,33 +15,33 @@
     en: {
       hello: ["Up late? 🦉", "Good morning! ☀️", "Good afternoon! 👋", "Good evening! 🌙"],
       back: "Welcome back! 👋",
-      intro: "I'm Yutong's lab assistant, the AI who keeps up with everything she builds.",
+      intro: "I'm Yutong. Well, my AI twin, here to chat about what I'm building.",
       introBack: "Good to see you again.",
-      news: (d, t) => `🔬 Fresh from the lab (${d}): ${t}`,
-      ask: "Ask me about her robots, teaching or research, or leave her a message.",
-      chips: ["What's new? ✨", "Tell me about SB01", "I'd like to talk with Yutong"],
+      news: (d, t) => `🔬 Fresh from my lab (${d}): ${t}`,
+      ask: "Ask me about my robots, teaching or research, or leave a message for the real me.",
+      chips: ["What's new? ✨", "Tell me about SB01", "I'd like to talk with the real you"],
     },
     zh: {
       hello: ["夜猫子你好 🦉", "早上好！☀️", "下午好！👋", "晚上好！🌙"],
       back: "欢迎回来！👋",
-      intro: "我是 Yutong 的实验室助手，一个了解她所有项目的 AI。",
+      intro: "我是 Yutong 的 AI 分身，可以和你聊聊我正在做的项目。",
       introBack: "很高兴再见到你。",
-      news: (d, t) => `🔬 实验室新鲜事（${d}）：${t}`,
-      ask: "可以问我她的机器人、课程和研究，也可以给她留言。",
-      chips: ["最近有什么新进展？✨", "介绍一下 SB01", "我想和 Yutong 聊聊"],
+      news: (d, t) => `🔬 我的实验室新鲜事（${d}）：${t}`,
+      ask: "可以问我的机器人、课程和研究，也可以给真正的我留言。",
+      chips: ["最近有什么新进展？✨", "介绍一下 SB01", "我想和真正的你聊聊"],
     },
     es: {
       hello: ["¿Despierto a estas horas? 🦉", "¡Buenos días! ☀️", "¡Buenas tardes! 👋", "¡Buenas noches! 🌙"],
       back: "¡Bienvenido de nuevo! 👋",
-      intro: "Soy el asistente de laboratorio de Yutong, la IA que está al día con todo lo que construye.",
+      intro: "Soy Yutong. Bueno, mi gemela de IA, lista para contarte lo que estoy construyendo.",
       introBack: "Qué gusto verte otra vez.",
-      news: (d, t) => `🔬 Recién salido del laboratorio (${d}): ${t}`,
-      ask: "Pregúntame por sus robots, sus clases o su investigación, o déjale un mensaje.",
-      chips: ["¿Qué hay de nuevo? ✨", "Cuéntame sobre SB01", "Me gustaría hablar con Yutong"],
+      news: (d, t) => `🔬 Recién salido de mi laboratorio (${d}): ${t}`,
+      ask: "Pregúntame por mis robots, mis clases o mi investigación, o deja un mensaje para la Yutong real.",
+      chips: ["¿Qué hay de nuevo? ✨", "Cuéntame sobre SB01", "Me gustaría hablar contigo en persona"],
     },
   }[LANG];
 
-  // Illustrated mini-Yutong with a little G1 sidekick. Inline so eyes can blink via CSS.
+  // Illustrated mini-Yutong (the AI twin) with a little G1 sidekick. Inline so eyes can blink via CSS.
   const AVATAR = `
     <svg viewBox="0 0 100 100" aria-hidden="true">
       <circle cx="50" cy="50" r="50" fill="#ffe6d6"/>
@@ -80,14 +80,14 @@
 
   const root = document.createElement("aside");
   root.className = "chat";
-  root.setAttribute("aria-label", "Chat with Yutong's assistant");
+  root.setAttribute("aria-label", "Chat with AI Yutong");
   root.innerHTML = `
     <div class="chat-head">
       <div class="chat-id">
         <div class="chat-av chat-av-lg">${AVATAR}<span class="chat-online" title="Online"></span></div>
         <div>
-          <div class="chat-title">Yutong's lab assistant</div>
-          <div class="chat-sub">AI · knows her latest work · any language</div>
+          <div class="chat-title">Yutong Liu <span class="chat-badge">AI</span></div>
+          <div class="chat-sub">My AI twin · knows my latest work · any language</div>
         </div>
       </div>
       <button class="chat-close" type="button" aria-label="Close chat">×</button>
@@ -98,7 +98,7 @@
       <textarea rows="1" maxlength="2000" placeholder="Type a message…" aria-label="Message"></textarea>
       <button type="submit" aria-label="Send">Send</button>
     </form>
-    <div class="chat-note">Messages you leave here are saved and read by Yutong.</div>`;
+    <div class="chat-note">You're chatting with an AI version of me. Messages you leave here are read by the real me.</div>`;
   const toggle = document.createElement("button");
   toggle.className = "chat-toggle";
   toggle.type = "button";
